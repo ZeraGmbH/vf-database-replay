@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
 
 
   QCommandLineOption tickrateOption("t",
-                                    QCoreApplication::translate("main", "Frequency of updates as integer ms value, 10 <= tickrate <= 1000"),
+                                    QCoreApplication::translate("main", "Frequency of updates as integer ms value\n10 <= tickrate <= 1000"),
                                     QCoreApplication::translate("main", "tickrate"));
 
   QCommandLineOption loopOption("l", QCoreApplication::translate("main", "Loop over data until interrupted"));

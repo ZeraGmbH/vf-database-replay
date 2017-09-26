@@ -49,19 +49,19 @@ bool checkDatabaseParam(const QString &t_dbParam)
   return retVal;
 }
 
-bool checkTickrateParam(const QString &t_tickrate)
+bool checkTickDelayParam(const QString &t_tickDelay)
 {
   bool retVal = false;
-  bool tickrateOk = false;
-  const int tickrate = t_tickrate.toInt(&tickrateOk);
-  if(tickrateOk == false || tickrate < 10 || tickrate > 1000)
+  bool tickDelayOk = false;
+  const int tickDelay = t_tickDelay.toInt(&tickDelayOk);
+  if(tickDelayOk == false || tickDelay < 10 || tickDelay > 1000)
   {
-    qWarning() << "Invalid parameter t" << t_tickrate;
+    qWarning() << "Invalid parameter t" << t_tickDelay;
   }
   else
   {
     retVal = true;
-    qDebug() << "tickrate:" << tickrate;
+    qDebug() << "tick delay:" << tickDelay;
   }
 
   return retVal;
@@ -92,15 +92,15 @@ int main(int argc, char *argv[])
                                     QCoreApplication::translate("main", "database file"));
 
 
-  QCommandLineOption tickrateOption("t",
-                                    QCoreApplication::translate("main", "Frequency of updates as integer ms value\n10 <= tickrate <= 1000"),
-                                    QCoreApplication::translate("main", "tickrate"));
+  QCommandLineOption tickDelayOption("t",
+                                    QCoreApplication::translate("main", "Delay between updates as integer ms value\n10 <= tick delay <= 1000"),
+                                    QCoreApplication::translate("main", "tick delay"));
 
   QCommandLineOption loopOption("l", QCoreApplication::translate("main", "Loop over data until interrupted"));
   parser.addOption(loopOption);
 
   parser.addOption(databaseOption);
-  parser.addOption(tickrateOption);
+  parser.addOption(tickDelayOption);
   parser.process(app);
 
   if(checkDatabaseParam(parser.value(databaseOption)) == false)
@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
     parser.showHelp(1);
   }
 
-  if(checkTickrateParam(parser.value(tickrateOption)) == false)
+  if(checkTickDelayParam(parser.value(tickDelayOption)) == false)
   {
     //return with exit 1
     parser.showHelp(1);
@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
   evHandler.setSubsystems(subSystems);
 
   replaySystem->setDatabaseFile(parser.value(databaseOption));
-  replaySystem->setTickrate(parser.value(tickrateOption).toInt());
+  replaySystem->setTickDelay(parser.value(tickDelayOption).toInt());
   replaySystem->startReplay();
   replaySystem->setLoop(parser.isSet(loopOption));
 

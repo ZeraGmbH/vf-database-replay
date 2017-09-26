@@ -26,7 +26,7 @@ signals:
 public slots:
   void startReplay();
   bool setDatabaseFile(const QString &t_dbFilePath);
-  void setTickrate(int t_tickrate);
+  void setTickDelay(int t_tickrate);
   void setLoop(bool t_loop);
   void dataTimerFinished();
 

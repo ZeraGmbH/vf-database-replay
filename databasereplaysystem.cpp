@@ -142,7 +142,7 @@ bool DatabaseReplaySystem::setDatabaseFile(const QString &t_dbFilePath)
   return retVal;
 }
 
-void DatabaseReplaySystem::setTickrate(int t_tickrate)
+void DatabaseReplaySystem::setTickDelay(int t_tickrate)
 {
   m_dataTimer.setInterval(t_tickrate);
   m_tickRate = t_tickrate;

@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
   VeinEvent::EventHandler evHandler;
   DatabaseReplaySystem *replaySystem = new DatabaseReplaySystem(&app);
   VeinStorage::VeinHash *storSystem = new VeinStorage::VeinHash(&app);
-  VeinNet::IntrospectionSystem *introspectionSystem = new VeinNet::IntrospectionSystem(storSystem, &app);
+  VeinNet::IntrospectionSystem *introspectionSystem = new VeinNet::IntrospectionSystem(&app);
   VeinNet::NetworkSystem *netSystem = new VeinNet::NetworkSystem(&app);
   VeinNet::TcpSystem *tcpSystem = new VeinNet::TcpSystem(&app);
 

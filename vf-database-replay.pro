@@ -5,9 +5,8 @@ TARGET = vf-database-replay
 VEIN_DEP_EVENT = 1
 VEIN_DEP_COMP = 1
 VEIN_DEP_HASH = 1
-VEIN_DEP_PROTOBUF = 1
-VEIN_DEP_TCP = 1
-VEIN_DEP_NET = 1
+VEIN_DEP_TCP2 = 1
+VEIN_DEP_NET2 = 1
 VEIN_DEP_HELPER = 1
 
 exists( ../../vein-framework.pri ) {

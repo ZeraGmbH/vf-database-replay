@@ -1,5 +1,7 @@
 TEMPLATE = app
 TARGET = vf-database-replay
+target.path = /usr/bin
+INSTALLS += target
 
 #dependencies
 VEIN_DEP_EVENT = 1

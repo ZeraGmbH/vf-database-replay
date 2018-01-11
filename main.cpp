@@ -138,7 +138,11 @@ int main(int argc, char *argv[])
   replaySystem->startReplay();
   replaySystem->setLoop(parser.isSet(loopOption));
 
-  tcpSystem->startServer(12000);
+
+  if(tcpSystem->startServer(12000) == false)
+  {
+    app.exit(-EADDRINUSE);
+  }
 
   return app.exec();
 }

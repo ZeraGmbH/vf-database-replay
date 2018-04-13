@@ -107,7 +107,7 @@ bool DatabaseReplaySystem::setDatabaseFile(const QString &t_dbFilePath)
         }
         m_initQuery.finish();
 
-        VeinComponent::ComponentData *initialData=0;
+        VeinComponent::ComponentData *initialData=nullptr;
         for(int loopEntityId : initialECSData.uniqueKeys())
         {
           for(const QString &compName : initialECSData.values(loopEntityId))

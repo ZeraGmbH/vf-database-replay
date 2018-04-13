@@ -3,9 +3,9 @@
 
 #include <ve_eventsystem.h>
 #include <QSqlDatabase>
+#include <QSqlQuery>
 #include <QDateTime>
 #include <QTimer>
-#include <QSqlQuery>
 #include <QQueue>
 
 class ECSDataset;
@@ -14,7 +14,7 @@ class DatabaseReplaySystem : public VeinEvent::EventSystem
 {
   Q_OBJECT
 public:
-  explicit DatabaseReplaySystem(QObject *t_parent = 0);
+  explicit DatabaseReplaySystem(QObject *t_parent = nullptr);
 
   // EventSystem interface
 public:

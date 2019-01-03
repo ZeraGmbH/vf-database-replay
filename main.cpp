@@ -34,14 +34,14 @@ bool checkDatabaseParam(const QString &t_dbParam)
     {
       QMimeDatabase mimeDB;
       const QString mimeName = mimeDB.mimeTypeForFile(dbFInfo, QMimeDatabase::MatchContent).name();
-      if(mimeName != "application/x-sqlite3")
-      {
-        qWarning() << "Database filetype not supported:" << mimeName;
-      }
-      else
+      if(mimeName == "application/x-sqlite3" || mimeName == "application/vnd.sqlite3")
       {
         retVal = true;
         qDebug() << "Database file:"  << t_dbParam << QString("%1 MB").arg(dbFInfo.size()/1024.0/1024.0);
+      }
+      else
+      {
+        qWarning() << "Database filetype not supported:" << mimeName;
       }
     }
   }

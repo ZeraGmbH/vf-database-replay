@@ -14,7 +14,6 @@ include(FeatureSummary)
 include(GNUInstallDirs)
 
 find_package(Qt5 COMPONENTS Core Sql Network CONFIG REQUIRED)
-find_package(VfQml REQUIRED)
 find_package(VfLogger REQUIRED)
 
 file(GLOB SOURCES

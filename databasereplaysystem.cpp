@@ -17,7 +17,7 @@ DatabaseReplaySystem::DatabaseReplaySystem(QObject *t_parent) : VeinEvent::Event
   connect(&m_dataTimer, &QTimer::timeout, this, &DatabaseReplaySystem::dataTimerFinished);
 }
 
-bool DatabaseReplaySystem::processEvent(QEvent *t_event)
+void DatabaseReplaySystem::processEvent(QEvent *t_event)
 {
   if(t_event->type() == VeinEvent::CommandEvent::eventType())
   {
@@ -30,7 +30,6 @@ bool DatabaseReplaySystem::processEvent(QEvent *t_event)
       cEvent->setEventSubtype(VeinEvent::CommandEvent::EventSubtype::NOTIFICATION);
     }
   }
-  return false;
 }
 
 void DatabaseReplaySystem::startReplay()

@@ -40,7 +40,6 @@ target_link_libraries(VfReplay
     Qt5::Sql
     Qt5::Network
     Zera::VfEvent
-    Zera::VfHelpers
     Zera::VfComponent
     Zera::VfStorageHash
     Zera::VfNet2
